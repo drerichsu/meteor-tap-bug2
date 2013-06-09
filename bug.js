@@ -27,9 +27,9 @@ if (Meteor.isClient) {
 		} else {
 			Session.set('show', true);
     	}
-        Meteor.flush();
-	  },
-      'click .toggle' : function (event) {
+        //Meteor.flush();
+    },
+    'click .toggle' : function (event) {
           alert('click!');
           if(Session.get('show')) {
               Session.set('show', false);

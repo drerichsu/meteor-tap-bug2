@@ -7,12 +7,11 @@
 </body>
 
 <template name="hello">
-  <table>
-	{{#if assignmentExpanded}}
-	  <tr class="toggle"><td >Click to make new row in Template.</td></tr>
-	  <tr class="dontTrigger"><td >I'm new! But don't use me to toggle.</td></tr>
-	{{else}}
-	  <tr class="toggle"><td>Click to make new row in Template.</td></tr>
-	{{/if}}
-	</table>
+    <div class="container">
+        <div class="toggle button">Click to make new row in Template.</div>
+        <hr>
+        {{#if assignmentExpanded}}
+            <div class="dontTrigger button">I'm new! But don't use me to toggle.</div>
+        {{/if}}
+    </div>
 </template>
