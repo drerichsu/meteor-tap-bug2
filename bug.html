@@ -1,0 +1,18 @@
+<head>
+  <title>table-test</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <table>
+	{{#if assignmentExpanded}}
+	  <tr class="toggle"><td >Click to make new row in Template.</td></tr>
+	  <tr class="dontTrigger"><td >I'm new! But don't use me to toggle.</td></tr>
+	{{else}}
+	  <tr class="toggle"><td>Click to make new row in Template.</td></tr>
+	{{/if}}
+	</table>
+</template>
