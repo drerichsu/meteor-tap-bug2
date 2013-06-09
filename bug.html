@@ -7,12 +7,30 @@
 </body>
 
 <template name="hello">
-  <table>
-	{{#if assignmentExpanded}}
-	  <tr class="toggle"><td >Click to make new row in Template.</td></tr>
-	  <tr class="dontTrigger"><td >I'm new! But don't use me to toggle.</td></tr>
-	{{else}}
-	  <tr class="toggle"><td>Click to make new row in Template.</td></tr>
-	{{/if}}
-	</table>
+    <div class="container">
+        <div class="div-toggle button">I'm a Div.  Click or Tap me to make a new Div.  I work as expected.</div>
+        {{#if assignmentExpanded}}
+            <div class="dontTrigger button">I'm the new Div! But I don't toggle anything.</div>
+        {{/if}}
+
+        <hr>
+        <table>
+            <tr class="tap-toggle"><td><div class="table-button-red">I'm a table row.  Tap me to make a new row in the Table.  I'll fire three times - once for the button, once for the column, and once for the row.</div></td></tr>
+            {{#if assignmentExpanded}}
+                <tr class="dontTrigger"><td ><div class="table-button-red">I'm a new row! But I don't toggle anything either.</div></td></tr>
+            {{/if}}
+        </table>
+
+
+        <hr>
+        <table>
+            <tr class="touchend-toggle"><td><div class="table-button-blue">I'm a table row.  Touchend me to make a new row in the Table.  I work as expected</div></td></tr>
+            {{#if assignmentExpanded}}
+            <tr class="dontTrigger"><td ><div class="table-button-blue">I'm a new row! But I don't toggle anything either.</div></td></tr>
+            {{/if}}
+        </table>
+
+
+
+    </div>
 </template>
