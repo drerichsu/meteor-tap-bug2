@@ -11,34 +11,39 @@ if (Meteor.isClient) {
   Session.setDefault('show', false);
 
   Template.hello.events({
-
-    // here's the first problem, event maps aren't smart enough to handle lists of events like you're doing
-    // 'click, tap .assignmentRow' : function (event) {
-
-    // rather, you neeed to do each event individually
-    'tap .toggle' : function (event) {
-        // confirm tap event is working
-        // if toggle:hover CSS class is commented out, this will fire twice
+    'tap .div-toggle' : function (event) {
         alert('tap!');
-
-        // replaced 'on' and 'off' with true and false, to make sure booleans are parsed correctly
-		if(Session.get('show')) {
-			Session.set('show', false);
-		} else {
-			Session.set('show', true);
-    	}
-        //Meteor.flush();
+        toggleSession('show');
     },
-    'click .toggle' : function (event) {
-          alert('click!');
-          if(Session.get('show')) {
-              Session.set('show', false);
-          } else {
-              Session.set('show', true);
-          }
+    'tap .tap-toggle' : function (event) {
+        alert('tap!');
+        toggleSession('show');
+    },
+    'touchend .touchend-toggle' : function (event) {
+        alert('touchend!');
+        toggleSession('show');
+    },
+    'click .div-toggle' : function (event) {
+        alert('click!');
+        toggleSession('show');
       }
 	});
+
   Template.hello.assignmentExpanded = function () {
 	  return (Session.get('show'));
   }
+
+
+    toggleSession = function(variable){
+        if(Session.get(variable)){
+            Session.set(variable, false);
+        } else {
+            Session.set(variable, true);
+        }
+    }
+
 }
+
+
+
+
